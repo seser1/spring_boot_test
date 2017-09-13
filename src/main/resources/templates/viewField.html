@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<style type="text/css">  
+<!--
+#container{
+    width: 100%;
+}
+#row{
+    width: 100%;
+    clear:both;
+}
+#box{
+	float: left;
+    width: 10px;
+    height: 10px;
+    border: solid 0.5px #ddd;
+} 
+.box1{
+	background-color: #222;	
+}
+.box0{
+	background: #fff;	
+}
+
+-->  
+</style>  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+$(function() {
+	$.getJSON("lifegameAPI", getFunc);
+});
+function getFunc(myData){
+    $.each(myData, function(index, value){
+        $("#disp").append('<div id="row">');
+        $.each(value, function(_index, _value){
+        	if(_value == 0)
+		        $("#disp").append('<div id="box" class="box0"></div>');    
+        	if(_value == 1)
+		        $("#disp").append('<div id="box" class="box1"></div>');
+	    })
+        $("#disp").append('</div>');
+    })
+};
+</script>
+<title>Test</title>
+</head>
+<body>
+<div id="container">
+	<div id="disp"></div>
+	<div id="box"></div>
+</div>
+</body>
+</html>

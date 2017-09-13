@@ -14,5 +14,12 @@ public class WebController {
 
         return "test";
     }
+    
+    @GetMapping("/lifegame")
+    public String viewField() {
+
+        return "viewField";
+    }
+    
 
 }
