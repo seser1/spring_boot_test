@@ -14,6 +14,10 @@ public class LifeGame {
 		field = new int[30][30];
 		_field = new int[field.length][field[0].length];
 		
+		reset();
+	}
+	
+	public void reset() {
         Random rnd = new Random();
 		for(int i =0; i < field.length; i++) {
 			for(int j =0; j < field[i].length; j++) {

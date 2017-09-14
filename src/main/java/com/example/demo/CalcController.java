@@ -15,17 +15,18 @@ public class CalcController {
 		lifeGame = new LifeGame();
 	}	
 
-    @GetMapping("/lifegameAPI")
-    public int[][] test() {
+    @GetMapping("/lifegame/API/field")
+    public int[][] lifegameAPI() {
 		lifeGame.next();
     	return lifeGame.getField();
     }
     
-    /*
-	@Scheduled(fixedDelay = 1000)
-	public void loop() {
-		lifeGame.next();
-	}*/
+    @GetMapping("/lifegame/API/reset")
+    public void reset() {
+		lifeGame.reset();
+    }
+    
+
 
 }
 

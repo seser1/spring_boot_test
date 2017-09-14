@@ -29,9 +29,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script>
 $(function() {
-	$.getJSON("lifegameAPI", getFunc);
+    setInterval(function(){
+    	$.getJSON("/lifegame/API/field", getFunc);
+    },500);
+    $('#reset').on('click', function() {
+    	$.get("/lifegame/API/reset");
+    });
 });
 function getFunc(myData){
+	$("#disp").empty();
     $.each(myData, function(index, value){
         $("#disp").append('<div id="row">');
         $.each(value, function(_index, _value){
@@ -49,7 +55,8 @@ function getFunc(myData){
 <body>
 <div id="container">
 	<div id="disp"></div>
-	<div id="box"></div>
 </div>
+<br></br>
+<button id="reset">reset</button>
 </body>
 </html>
