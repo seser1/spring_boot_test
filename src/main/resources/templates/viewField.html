@@ -13,8 +13,8 @@
 }
 #box{
 	float: left;
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     border: solid 0.5px #ddd;
 } 
 .box1{
@@ -27,13 +27,14 @@
 -->  
 </style>  
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>
+<script  th:inline="javascript">
+/*<![CDATA[*/
 $(function() {
     setInterval(function(){
-    	$.getJSON("/lifegame/API/field", getFunc);
+    	$.getJSON(/*[[ @{/lifegame/API/field} ]]*/ 'field', getFunc);
     },500);
     $('#reset').on('click', function() {
-    	$.get("/lifegame/API/reset");
+    	$.get(/*[[ @{/lifegame/API/reset} ]]*/ 'reset');
     });
 });
 function getFunc(myData){
@@ -49,6 +50,7 @@ function getFunc(myData){
         $("#disp").append('</div>');
     })
 };
+/*]]>*/
 </script>
 <title>Test</title>
 </head>
@@ -58,5 +60,7 @@ function getFunc(myData){
 </div>
 <br></br>
 <button id="reset">reset</button>
+<br></br>
+<a th:href="@{/lifegame/API/field}">api</a>
 </body>
 </html>

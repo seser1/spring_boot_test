@@ -11,7 +11,7 @@ public class LifeGame {
 	
 	
 	public LifeGame() {
-		field = new int[30][30];
+		field = new int[60][60];
 		_field = new int[field.length][field[0].length];
 		
 		reset();
